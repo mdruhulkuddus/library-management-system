@@ -43,7 +43,7 @@ public class Library {
         return null;
     }
 
-    public void searchBookByID(String keyword) {
+    public void searchBooks(String keyword) {
         System.out.println("\n--- Search Results ---");
         boolean found = false;
         for(Book book : books) {
@@ -68,6 +68,11 @@ public class Library {
     public void viewAllMembers() {
         if(members.isEmpty()) {
             System.out.println("No members registered");
+            return;
+        }
+        System.out.println("\n--- All Members ---");
+        for(Member member : members) {
+            member.displayInfo();
         }
     }
 
@@ -140,6 +145,7 @@ public class Library {
 
         if(transaction == null) {
             System.out.println("No transaction found with ID: "+ transactionID);
+            return;
         }
 
         // Step 2: Already returned কিনা
